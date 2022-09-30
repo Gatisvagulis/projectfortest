@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<main>
+    <h1>About {{project.title}}</h1>
+    <div class="single-image">
+        <img src="{{ project.featured_image.url }}" alt="">
+    </div>
+    <h2>Description</h2>
+    <p>{{ project.description }}</p>
+    <p class="go-back"><a href="{% url 'welcome' %}"> Go back</a></p>
+
+</main>
+
+{% endblock content %}

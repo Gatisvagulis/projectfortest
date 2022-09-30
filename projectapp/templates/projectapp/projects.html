@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<main>
+    <h1>Welcome {{request.user}}</h1>
+    <h2>Here are some programming languages.</h2>
+    
+    <div class="card-area">
+    {% for project in projects %}
+    <div class="card">
+        <img src="{{ project.featured_image.url }}" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h4><b>{{project.title}}</b></h4>
+          <p><a href="{% url 'project' project.id %}">Read more >>></a></p>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+    {% endblock content %}
+</main>
