@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<main class="user_info">
+    <h1>Hello {{user_info}}</h1>
+    <img src="{{ user_info.user_image.url }}" alt="">
+    <div>
+        <h4>First Name: {{user_info.first_name}}</h4>
+        <h4>Last Name: {{user_info.last_name}}</h4>
+        <h4>Email: {{user_info.email}}</h4>
+        <h4>Profile created: {{user_info.created}}</h4>
+    </div>
+</main>
+
+{% endblock content %}

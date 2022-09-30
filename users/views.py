@@ -3,6 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
+from .models import UserInfo
 
 def loginPage(request):
 
@@ -36,4 +37,9 @@ def logoutPage(request):
     return redirect('login')
 
 
-# @login_required(login_url="login")
+@login_required(login_url="login")
+def userInfo(request):
+    user = request.user
+    user_info = UserInfo.objects.get(user=user)
+    context = {'user_info': user_info}
+    return render(request, 'users/user_info.html', context)
